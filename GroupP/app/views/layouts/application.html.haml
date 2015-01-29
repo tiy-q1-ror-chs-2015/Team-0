@@ -4,46 +4,35 @@
     %meta{:charset => "utf-8"}
       %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
         %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-          %title GroupP
+          %title PDA
           %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}
             = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
             = javascript_include_tag 'application', 'data-turbolinks-track' => true
             = csrf_meta_tags
   %body
-    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"}
-    %script{:src => "js/bootstrap.min.js"}
-    .navbar.navbar-fixed-top{:role => "navigation"}
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.icon-bar
-          %span.icon-bar 
-          %span.icon-bar
-          = link_to 'root', root_path, class: "button"
-          = link_to 'events', events_path, class: "button"
-          = link_to 'memos', memos_path, class: "button"
-          %p.navbar-text.pull-right
-            - if user_signed_in?
-              Logged in as
-              = succeed "." do
-                %strong= current_user.email
-              = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
-            - else
-              = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
-              |
-              \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
-      .nav-collapse.collapse
-        = render 'layouts/navbar'
-    / .container.theme-showcase{:role => "main"}
-    /   %div.row
-    /     %div.col-md-3
-    /       = render 'layouts/sidebar'
-    /     %div.col-md-9
-    %div{class: "yield"}
-      - if flash[:notice]
-        %h5#notice= flash[:notice]
-      - if flash[:error]
-        %h5#error= flash[:error]
-      = yield
+    %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+      %div.container
+        = link_to 'Root', root_path, :class => 'navbar-link btn btn-default navbar-btn'
+        = link_to 'Events', events_path, :class => 'navbar-link btn btn-default navbar-btn'
+        = link_to 'Memos', memos_path, :class => 'navbar-link btn btn-default navbar-btn'
+        %p.pull-right
+          - if user_signed_in?
+            Logged in as
+            = succeed "." do
+              %strong= current_user.email
+            = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link btn btn-default navbar-btn'
+            = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link btn btn-default navbar-btn'
+          - else
+            = link_to "Sign up", new_user_registration_path, :class => 'navbar-link btn btn-default navbar-btn'
+            = link_to "Login", new_user_session_path, :class => 'navbar-link btn btn-default navbar-btn'
+    %div.container
+      %div.row
+        %div.col-md-3.sidebar-style
+          = render 'sidebar'
+        %div.col-md-9
+          %div.body-content-style
+            - if flash[:notice]
+              %h5#notice= flash[:notice]
+            - if flash[:error]
+              %h5#error= flash[:error]
+            = yield
