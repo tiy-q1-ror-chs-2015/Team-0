@@ -1,0 +1,7 @@
+%h1 Memos
+= link_to 'New Memo', new_memo_path
+%br
+- @memos.each do |memo|
+  = memo.name
+  = memo.content
+  = link_to 'Show', memo_path(memo), class: "button"
