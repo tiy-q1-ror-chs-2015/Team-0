@@ -13,6 +13,8 @@ class MemosController < ApplicationController
   def show
     set_memo
   end
+  def edit
+  end
   def destroy
 
   end
