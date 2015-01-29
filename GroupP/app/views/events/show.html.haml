@@ -1,5 +1,10 @@
 %h1 Event
 %h4
   Name: #{@event.name}
+  %br
   Description: #{@event.description}
+  %br
   Date: #{@event.date}
+  %br
+  = link_to "Update Event", edit_event_path(@event)
+  = link_to "Delete Event", event_path, method: :delete

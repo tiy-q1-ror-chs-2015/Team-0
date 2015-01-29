@@ -7,14 +7,37 @@ class EventsController < ApplicationController
   end
   def create
     @event = Event.new(event_params)
-    @event.save
-    redirect_to root_path
+    if @event.save
+      flash[:notice] = 'Event was successfully added.'
+      redirect_to root_path
+    else
+      flash[:error] = "Event was NOT added."
+      render :new
+    end
   end
   def show
     set_event
   end
-  def destroy
 
+  def edit
+    set_event
+  end
+
+  def update
+    set_event
+    @event.update_attributes event_params
+    if @event.update_attributes event_params
+      flash[:notice] = 'Event was successfully added.'
+      redirect_to event_path(@event)
+    else
+      flash[:error] = "Event was NOT added."
+      render :edit
+    end
+  end
+  def destroy
+    set_event
+    @event.destroy
+    redirect_to root_path
   end
 private
   def set_event

@@ -41,9 +41,9 @@
     /     %div.col-md-3
     /       = render 'layouts/sidebar'
     /     %div.col-md-9
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
     %div{class: "yield"}
+      - if flash[:notice]
+        %h5#notice= flash[:notice]
+      - if flash[:error]
+        %h5#error= flash[:error]
       = yield
