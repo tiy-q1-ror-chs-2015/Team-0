@@ -1,0 +1,8 @@
+%h1 Events
+= link_to 'New Event', new_event_path
+%br
+- @events.each do |event|
+  = event.name
+  = event.description
+  = event.date 
+  = link_to 'Show', event_path(event), class: "button"
