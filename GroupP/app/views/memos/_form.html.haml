@@ -1,6 +1,7 @@
 - if @memo.errors.any?
   - @memo.errors.full_messages.each do |message|
-    %p= message
+    %span.glyphicon.glyphicon-exclamation-sign
+    %span= message
     %br/
 = form_for (@memo) do |f|
   = f.label :name
