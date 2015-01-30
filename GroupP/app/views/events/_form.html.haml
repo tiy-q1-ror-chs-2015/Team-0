@@ -2,7 +2,7 @@
   - @event.errors.full_messages.each do |message|
     %p= message
     %br/
-= form_for (@event) do |f|
+= form_for [current_user, @event] do |f|
   = f.label :name
   = f.text_field :name
   %br
@@ -11,5 +11,11 @@
   %br
   = f.label :date
   = f.date_field :date
+  %br
+  %p
+    Who will be attending this event?
+  - @users.each do |c|
+    = check_box_tag 'event[user_ids][]', c.id, @event.users.include?(c)
+    = c.email
   %br
   = f.submit
