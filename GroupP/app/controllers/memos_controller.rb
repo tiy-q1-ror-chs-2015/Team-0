@@ -43,6 +43,10 @@ private
   end 
 
   def memo_params
-    params.require(:memo).permit(:name, :content)
+    params.require(:memo).permit(
+      :name,
+      :content,
+      :user_id
+      )
   end
 end
