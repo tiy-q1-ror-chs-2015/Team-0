@@ -1,6 +1,7 @@
 - if @event.errors.any?
   - @event.errors.full_messages.each do |message|
-    %p= message
+    %span.glyphicon.glyphicon-exclamation-sign
+    %span= message
     %br/
 = form_for [current_user, @event] do |f|
   = f.label :name
