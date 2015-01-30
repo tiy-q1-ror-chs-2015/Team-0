@@ -5,18 +5,23 @@
   background-color: #CCC;
 }
 .button {
+  font-weight: bold;
   border-radius: 20%;
   border-bottom: 2px solid blue;
   border-top: 2px solid blue;
   border-left: 2px solid blue;
   border-right: 2px solid blue;
-  background-color: blue;
+  background-color: gray;
 }
 .body-content-style {
-  background-color: red;
+  background-color: #B2BBD9;
   text-align: center;
   margin-top: 70px;
 }
 .sidebar-style {
   background-color: blue;
+  height: 100%;
+}
+body {
+  background-color: #B2D3D9;
 }

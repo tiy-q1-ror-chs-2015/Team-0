@@ -1,5 +1,4 @@
 %ul.nav.navbar-nav
-  = link_to 'events', events_path
   %p.navbar-text.pull-right
     - if user_signed_in?
       Logged in as
@@ -12,3 +11,4 @@
       = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
       |
       \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
+      hi
