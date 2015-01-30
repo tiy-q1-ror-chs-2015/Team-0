@@ -1,12 +1,17 @@
 class MemosController < ApplicationController
   def index
-    @memos = Memo.all
+    @user = User.find current_user
+
+    @memos = @user.memos
   end
   def new
+    @user = User.find current_user.id
     @memo = Memo.new
   end
+
   def create
-    @memo = Memo.new(memo_params)
+    @user = User.find current_user
+    @memo = @user.memos.new(memo_params)
     if @memo.save
     flash[:notice] = 'Memo was successfully added.'
     redirect_to root_path
@@ -15,6 +20,7 @@ class MemosController < ApplicationController
       render :new 
     end
   end
+
   def show
     set_memo
   end

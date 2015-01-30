@@ -4,7 +4,7 @@
   %br
   Description: #{@event.description}
   %br
-  Date: #{@event.date}
+  Date: #{@event.date.strftime("%m/%d/%Y")}
   %br
   = link_to edit_user_event_path(current_user, @event) do
     %span.glyphicon.glyphicon-edit{class: 'glyph'}
