@@ -3,7 +3,7 @@
     %span.glyphicon.glyphicon-exclamation-sign
     %span= message
     %br/
-= form_for [@user, @memo] do |f|
+= form_for [current_user, @memo] do |f|
   = f.label :name
   = f.text_field :name
   %br

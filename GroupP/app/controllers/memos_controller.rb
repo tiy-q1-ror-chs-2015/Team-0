@@ -4,6 +4,7 @@ class MemosController < ApplicationController
 
     @memos = @user.memos
   end
+
   def new
     @user = User.find current_user.id
     @memo = Memo.new
@@ -28,15 +29,16 @@ class MemosController < ApplicationController
     set_memo
   end
   def update
+    @user = User.find current_user
     set_memo
-    @memo.update_attributes memo_params
-      if @memo.update_attributes memo_params
+    @user.memos.update_attributes memo_params
+    if @user.memos.update_attributes memo_params
       flash[:notice] = 'Memo was successfully added.'
-      redirect_to memo_path(@memo)
-      else
+      redirect_to user_memo_path(@user, @memo)
+    else
       flash[:error] = "Memo was NOT added."
       render :edit
-      end
+    end
   end
   def destroy
     set_memo
