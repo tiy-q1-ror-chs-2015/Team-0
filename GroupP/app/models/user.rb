@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events, through: :join_tables
   has_many :join_tables
-  has_many :memos, dependent: :destroy
+  has_many :memos
 end
