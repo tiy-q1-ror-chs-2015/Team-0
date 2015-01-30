@@ -1,5 +1,7 @@
 %h1 Events
-= link_to 'New Event', new_user_event_path(current_user.id)
+= link_to new_user_event_path(current_user.id), class: 'glyph' do
+  %float.glyphicon.glyphicon-plus
+  %float Event
 %br
 - @events.each do |event|
   = event.name
