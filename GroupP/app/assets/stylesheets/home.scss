@@ -11,10 +11,10 @@
   border-top: 2px solid blue;
   border-left: 2px solid blue;
   border-right: 2px solid blue;
-  background-color: gray;
+  background-color: #B8B3C7;
 }
 .body-content-style {
-  background-color: #B2BBD9;
+  background-color: #D2CCE0;
   text-align: center;
   margin-top: 70px;
 }
@@ -24,4 +24,10 @@
 }
 body {
   background-color: #B2D3D9;
+}
+.glyph {
+  color: gray;
+}
+.glyph:hover {
+  color: blue;
 }

@@ -6,5 +6,7 @@
   %br
   Date: #{@event.date}
   %br
-  = link_to "Update Event", edit_user_event_path(current_user, @event)
-  = link_to "Delete Event", user_event_path(current_user, @event), method: :delete
+  = link_to edit_user_event_path(current_user, @event) do
+    %span.glyphicon.glyphicon-edit{class: 'glyph'}
+  = link_to user_event_path(current_user, @event), method: :delete do
+    %span.glyphicon.glyphicon-trash{class: 'glyph'}

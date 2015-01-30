@@ -1,5 +1,7 @@
 %h1 Memos
-= link_to 'New Memo', new_user_memo_path(current_user)
+= link_to new_user_memo_path(current_user.id), class: 'glyph' do
+  %float.glyphicon.glyphicon-plus
+  %float Memo
 %br
 - @memos.each do |memo|
   = memo.name

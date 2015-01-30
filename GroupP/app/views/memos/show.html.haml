@@ -4,5 +4,7 @@
   %br
   Description: #{@memo.content}
   %br
-  = link_to "Update Memo", edit_memo_path(@memo)
-  = link_to "Delete Memo", memo_path, method: :delete
+  = link_to edit_user_memo_path(current_user, @memo) do
+    %span.glyphicon.glyphicon-edit{class: 'glyph'}
+  = link_to user_memo_path(current_user, @memo), method: :delete do
+    %span.glyphicon.glyphicon-trash{class: 'glyph'}
