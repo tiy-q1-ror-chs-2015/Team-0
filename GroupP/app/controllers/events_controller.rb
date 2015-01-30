@@ -4,12 +4,15 @@ class EventsController < ApplicationController
   end
   def new
     @event = Event.new
+    @users = User.all
+
   end
   def create
+    @users = User.all
     @event = Event.new(event_params)
     if @event.save
       flash[:notice] = 'Event was successfully added.'
-      redirect_to root_path
+      redirect_to user_events_path(current_user)
     else
       flash[:error] = "Event was NOT added."
       render :new
@@ -21,14 +24,16 @@ class EventsController < ApplicationController
 
   def edit
     set_event
+    @users = User.all
   end
 
   def update
     set_event
+    @users = User.all
     @event.update_attributes event_params
     if @event.update_attributes event_params
       flash[:notice] = 'Event was successfully added.'
-      redirect_to event_path(@event)
+      redirect_to user_event_path(current_user.id, @event)
     else
       flash[:error] = "Event was NOT added."
       render :edit
@@ -44,6 +49,12 @@ private
     @event = Event.find(params[:id])
   end
   def event_params
-    params.require(:event).permit(:name, :description, :date)
+    params.require(:event).permit(
+      :name,
+      :description,
+      :date,
+      user_ids: [],
+      event_ids: []
+      )
   end
 end

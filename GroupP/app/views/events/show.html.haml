@@ -6,5 +6,5 @@
   %br
   Date: #{@event.date}
   %br
-  = link_to "Update Event", edit_event_path(@event)
-  = link_to "Delete Event", event_path, method: :delete
+  = link_to "Update Event", edit_user_event_path(current_user, @event)
+  = link_to "Delete Event", user_event_path(current_user, @event), method: :delete

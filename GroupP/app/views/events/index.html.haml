@@ -1,8 +1,8 @@
 %h1 Events
-= link_to 'New Event', new_event_path
+= link_to 'New Event', new_user_event_path(current_user.id)
 %br
 - @events.each do |event|
   = event.name
   = event.description
   = event.date 
-  = link_to 'Show', event_path(event), class: "button"
+  = link_to 'Show', user_event_path(current_user, event), class: "button"

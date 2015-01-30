@@ -12,10 +12,16 @@
   %body
     %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
       %div.container
+<<<<<<< HEAD
         = link_to root_path, class: 'navbar-link btn btn-default navbar-btn' do
           %span.glyphicon.glyphicon-home
         = link_to 'Events', events_path, :class => 'navbar-link btn btn-default navbar-btn'
         = link_to 'Memos', memos_path, :class => 'navbar-link btn btn-default navbar-btn'
+=======
+        = link_to 'Home', root_path, :class => 'navbar-link btn btn-default navbar-btn'
+        = link_to 'Events', user_events_path(current_user.id), :class => 'navbar-link btn btn-default navbar-btn'
+        = link_to 'Memos', user_memos_path(current_user.id), :class => 'navbar-link btn btn-default navbar-btn'
+>>>>>>> upstream/master
         %p.pull-right
           - if user_signed_in?
             Logged in as
