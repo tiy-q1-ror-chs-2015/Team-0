@@ -1,10 +1,9 @@
 %h1 Memos
-= link_to new_user_memo_path(current_user.id), class: 'glyph' do
-  %float.glyphicon.glyphicon-plus
-  %float Memo
-%br
 - @memos.each do |memo|
   = memo.name
   = memo.content
   = link_to 'Show', user_memo_path(current_user, memo), class: "button"
   %br
+= link_to new_user_memo_path(current_user.id), class: 'glyph' do
+  %float.glyphicon.glyphicon-plus
+  %float Memo
