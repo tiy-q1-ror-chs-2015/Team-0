@@ -1,7 +1,6 @@
 class MemosController < ApplicationController
   def index
     @user = User.find current_user
-
     @memos = @user.memos
   end
 
