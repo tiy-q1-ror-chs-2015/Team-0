@@ -18,5 +18,6 @@
   - @users.each do |c|
     = check_box_tag 'event[user_ids][]', c.id, @event.users.include?(c)
     = c.email
+    %br
   %br
   = f.submit
