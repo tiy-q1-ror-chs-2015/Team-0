@@ -23,9 +23,11 @@ class MemosController < ApplicationController
 
   def show
     set_memo
+    @users = User.all
   end
   def edit
     set_memo
+    @users = User.all
   end
   def update
     @user = User.find current_user
