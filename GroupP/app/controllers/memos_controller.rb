@@ -5,7 +5,7 @@ class MemosController < ApplicationController
   end
 
   def new
-    @user = User.find current_user.id
+    @users = User.all
     @memo = Memo.new
   end
 
