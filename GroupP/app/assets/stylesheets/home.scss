@@ -29,6 +29,14 @@
   height: 100%;
   border-right: 1px solid white;
 }
+.todo-style {
+  position: absolute;
+  background-color: #E3D588;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  height: 19%;
+}
 .front {
 }
 body {
@@ -39,4 +47,11 @@ body {
 }
 .glyph:hover {
   color: #000EAD;
+}
+h1 {
+  color: #5A6496;
+}
+li {
+  text-align: left;
+  border-bottom: 1px solid black;
 }

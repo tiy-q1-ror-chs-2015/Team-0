@@ -3,15 +3,10 @@ class EventsController < ApplicationController
     @user = User.find current_user
     @events = @user.events
   end
-  def sidebar
-    @user = User.find current_user
-    @event = @user.events
-  end
   def new
-    @event = Event.new
     @users = User.all
+    @event = Event.new
   end
-
   def create
     @users = User.all
     @event = Event.new(event_params)
@@ -26,6 +21,7 @@ class EventsController < ApplicationController
   
   def show
     set_event
+    @users = User.all
   end
 
   def edit

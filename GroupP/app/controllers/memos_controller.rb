@@ -5,7 +5,7 @@ class MemosController < ApplicationController
   end
 
   def new
-    @user = User.find current_user.id
+    @users = User.all
     @memo = Memo.new
   end
 
@@ -23,9 +23,11 @@ class MemosController < ApplicationController
 
   def show
     set_memo
+    @users = User.all
   end
   def edit
     set_memo
+    @users = User.all
   end
   def update
     @user = User.find current_user
