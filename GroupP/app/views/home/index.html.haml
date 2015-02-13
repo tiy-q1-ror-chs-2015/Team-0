@@ -1,10 +1,11 @@
 %div
   %h1 Home
 
-= calendar_for(@events) do |t|
-  = t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
-  = t.day do |day, events|
-    = day.day
-    - events.each do |event|
-      = h(event.name)
-      
+-if user_signed_in?
+  = calendar_for(@events) do |t|
+    = t.head('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
+    = t.day do |day, events|
+      = day.day
+      - events.each do |event|
+        = h(event.name)
+        

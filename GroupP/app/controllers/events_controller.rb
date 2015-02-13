@@ -8,8 +8,8 @@ class EventsController < ApplicationController
     @event = Event.new
   end
   def create
-    @users = User.all
-    @event = Event.new(event_params)
+    @user = User.find current_user
+    @event = @user.events.new(event_params)
     if @event.save
       flash[:notice] = 'Event was successfully added.'
       redirect_to user_events_path(current_user)
@@ -30,9 +30,9 @@ class EventsController < ApplicationController
   end
 
   def update
+    @user= User.find current_user
     set_event
-    @users = User.all
-    @event.update_attributes event_params
+    @user.events.update_attributes event_params
     if @event.update_attributes event_params
       flash[:notice] = 'Event was successfully added.'
       redirect_to user_event_path(current_user.id, @event)
@@ -58,6 +58,7 @@ private
       :name,
       :description,
       :date,
+      :user_id,
       user_ids: [],
       event_ids: []
       )

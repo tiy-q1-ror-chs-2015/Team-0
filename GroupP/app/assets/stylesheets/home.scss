@@ -4,19 +4,6 @@
 .navbar {
   background-color: #BEBFCC;
 }
-.button {
-  font-weight: bold;
-  border-radius: 20%;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  background-color: #B8B3C7;
-}
-.button:hover {
-  color: #000EAD;
-  background-color: gray;
-}
 .body-content-style {
   text-align: center;
   margin-top: 70px;
@@ -37,8 +24,6 @@
   bottom: 0;
   height: 19%;
 }
-.front {
-}
 body {
   background-color: #A7AACC;
 }
@@ -51,7 +36,6 @@ body {
 h1 {
   color: #5A6496;
 }
-li {
-  text-align: left;
-  border-bottom: 1px solid black;
+dropdown-menu {
+  text-align: center;
 }
