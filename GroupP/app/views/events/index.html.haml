@@ -1,14 +1,10 @@
-%div
-  %h1 Events
+%h1 Events
 - @events.each do |event|
-  = event.name
-  = event.description
-  = event.date 
-  = link_to 'Show', user_event_path(current_user, event), class: "button"
+  .btn.btn-default
+    = link_to user_event_path(current_user, event) do
+      = event.name
   %br
 = link_to new_user_event_path(current_user.id), class: 'glyph' do
   %float.glyphicon.glyphicon-plus
   %float Event
 %br
-
-
